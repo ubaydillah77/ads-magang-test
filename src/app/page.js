@@ -1,70 +1,44 @@
-'use client';
-import { useEffect, useState } from 'react';
-import './page.css';
-import { Box, Container, Stack, Typography } from '@mui/material';
+"use client";
+import { Container, Stack, Typography } from "@mui/material";
+import useSWR from "swr";
+import ProductCard from "@/components/ProductCard";
+import { fetcher } from "@/utils/api/fetcher";
 
-import ProductCard from '@/components/ProductCard';
+const Home = () => {
+    const url = "https://testcasefe2023.ignorelist.com/api/v1/data";
 
-export default function Home() {
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(false);
+    const { data: products, error } = useSWR(url, fetcher);
 
-  useEffect(() => {
-    setLoading(true);
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(
-          'https://testcasefe2023.ignorelist.com/api/v1/data',
-          {
-            method: 'GET',
-            headers: {
-              nim: '20200801249',
-            },
-          }
-        );
+    if (error) {
+        return <p>Error fetching products: {error.message}</p>;
+    }
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+    return (
+        <Container maxWidth="lg">
+            <Typography
+                variant="h5"
+                sx={{ marginTop: 5, marginBottom: 2 }}
+                fontWeight={700}
+            >
+                Semua Produk
+            </Typography>
+            {!products && <p>Loading...</p>}
+            {products && (
+                <Stack direction={"row"} spacing={20}>
+                    {products.data.map((item, i) => (
+                        <ProductCard
+                            key={i}
+                            id={item.id}
+                            author={item.author}
+                            title={item.title}
+                            description={item.description}
+                            price={item.price}
+                        />
+                    ))}
+                </Stack>
+            )}
+        </Container>
+    );
+};
 
-        setLoading(false);
-        const result = await response.json();
-        setProducts(result);
-      } catch (error) {
-        setLoading(false);
-        console.error('Error fetching products:', error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  console.log(products);
-
-  return (
-    <>
-      <Container maxWidth='lg'>
-        <Typography
-          variant='h5'
-          sx={{ marginTop: 5, marginBottom: 2 }}
-          fontWeight={700}
-        >
-          Semua Product
-        </Typography>
-        {loading && <p>Loading...</p>}
-        <Stack direction={'row'} spacing={20}>
-          {products &&
-            products.data.map((item, i) => (
-              <ProductCard
-                key={i}
-                author={item.author}
-                title={item.title}
-                description={item.description}
-                price={item.price}
-              />
-            ))}
-        </Stack>
-      </Container>
-    </>
-  );
-}
+export default Home;
