@@ -29,7 +29,7 @@ Muhamad Ubaydillah ( 20200801249 )
 
 ![Screenshot Aplikasi](screenshoot/new-product.png)
 
-## 4. Edit product page
+## 5. Edit product page
 
 ![Screenshot Aplikasi](screenshoot/update-page.png)
 
