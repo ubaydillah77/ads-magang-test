@@ -1,3 +1,40 @@
+# Assalamualaikum Warahmatullahi Wabarakatuh
+
+### Saya Muhamad Ubaydillah
+
+### Izin mengumpulkan TES INTERNSHIP PROJECT ADS Digital Project Devisi Front-end Engineer
+
+Teknologi yang saya gunakan pada pembuatan aplikasi web ini Nextjs 13.5 dan MUI pada web aplikasi ini mampu melakukan Create, Read, Update dan Delete
+
+Terima kasih,
+
+Best Regards,
+Muhamad Ubaydillah ( 20200801249 )
+
+## Berikut adalah screenshoot pada website yang telah dibuat
+
+## 1. Homepage
+
+![Screenshot Aplikasi](screenshoot/home-page.png)
+
+## 2. Product detail page
+
+![Screenshot Aplikasi](screenshoot/detail-page.png)
+
+## 3. Manage page
+
+![Screenshot Aplikasi](screenshoot/manage-page.png)
+
+## 4. New product page
+
+![Screenshot Aplikasi](screenshoot/new-product.png)
+
+## 4. Edit product page
+
+![Screenshot Aplikasi](screenshoot/update-page.png)
+
+===
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
